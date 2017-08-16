@@ -12,7 +12,7 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
 		//Register Event Listeners
-		getServer().getPluginManager().registerEvents(new EventsListener(), this);
+		getServer().getPluginManager().registerEvents(new EventsListener(this), this);
 		
 		//Register Command Executors
 		this.getCommand("CoderDojo").setExecutor(new CoderDojoCommand());
