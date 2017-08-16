@@ -7,6 +7,7 @@ import ro.coderdojo.sarmalele.CoderDojoCommand;
 import ro.coderdojo.sarmalele.EventsListener;
 
 public class Main extends JavaPlugin {
+    
 
     @Override
     public void onEnable() {
