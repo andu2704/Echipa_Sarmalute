@@ -1,23 +1,22 @@
 package ro.coderdojo.sarmalele;
 
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityExplodeEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftTNTPrimed;
 
 @SuppressWarnings("empty-statement")
 public final class EventsListener implements Listener {
+
     Main plugin;
 
     public EventsListener(Main plugin) {
         this.plugin = plugin;
     }
-    
-    
+
     @EventHandler
     public void onLogin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
@@ -25,15 +24,12 @@ public final class EventsListener implements Listener {
     }
 
     @EventHandler
-    public void wall(PlayerInteractEvent event) {
-        event.getPlayer().getLocation().getBlock().setType(Material.AIR);
-    }
-
-    @EventHandler
     public void expl(EntityExplodeEvent event) {
+        System.out.println(event.getEntity().getClass().getCanonicalName());
+//        if(event.getEntity() instanceof CraftTNTPrimed) {
+//        }
         event.setCancelled(true);
         event.getLocation().getWorld().createExplosion(event.getLocation(), 50);
-        
     }
 
 }
